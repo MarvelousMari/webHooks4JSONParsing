@@ -8,6 +8,6 @@ post '/payload' do
   puts "I got some JSON: #{push.inspect}"
 end
 
-# push test 3
+# push test 4
 
 # TODO: need to add SECRET to secure webhook
