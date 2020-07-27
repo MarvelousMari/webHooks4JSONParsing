@@ -1,3 +1,1 @@
-# test push!
-# with one commits
-# with two commits
+# test push with no second line
