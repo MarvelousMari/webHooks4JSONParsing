@@ -63,7 +63,7 @@ def getPushInfo(push_hash)
   if $commitInfo[push_hash['repository']['name']].nil?
     # add new repo info
     $commitInfo[push_hash['repository']['name']] = Hash.new()
-    $commitInfo[push_hash['repository']['name']]['repoURL'] = push_hash['html_url']
+    $commitInfo[push_hash['repository']['name']]['repoURL'] = push_hash['repository']['html_url']
     $commitInfo[push_hash['repository']['name']]['commits'] = Hash.new()
   end
 
