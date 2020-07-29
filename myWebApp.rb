@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'json'
+require 'yaml'
 # pretty print
 require 'pp'
+
 
 #set :port, 443
 #set :port, 8080
@@ -41,19 +43,42 @@ get '/commitHTML' do
   getHTML()
 end
 
+get '/htmlArchive' do
+  puts File.read('htmlArchive.html')
+  returns halt 200, File.read('htmlArchive.html')
+end
+
 def getHTML()
   html2Return = "<ul>\n\t"
-  # get the repo name create a link with the message for text and connect it to repository link
-  # and set that to the first list line
-  $commitInfo.each{|repository, repoVal| html2Return += "<li><a href=\"" + repoVal['repoURL'] + "\">" + repository + "</a><ul>\n"
-    # get each commit first line message and set it as a link to the commit page
-    # then added it as a sub bullet to the repoName list
-    repoVal['commits'].each{|message, commitURL| html2Return += "\t\t" + "<li><a href=\"" + commitURL + "\">" + message + "</a></li>\n"}
-    # end the list
-    html2Return += "\t</ul></li>\n"}
-  # end the bloc
+  if File.exists?('commits.yml')
+    commitInfoFromFile = YAML.load_file('commits.yml')
+    # get the repo name create a link with the message for text and connect it to repository link
+    # and set that to the first list line
+    commitInfoFromFile.each{|repository, repoVal| html2Return += "<li><a href=\"" + repoVal['repoURL'] + "\">" + repository + "</a><ul>\n"
+      # get each commit first line message and set it as a link to the commit page
+      # then added it as a sub bullet to the repoName list
+      repoVal['commits'].each{|message, commitURL| html2Return += "\t\t" + "<li><a href=\"" + commitURL + "\">" + message + "</a></li>\n"}
+      # end the list
+      html2Return += "\t</ul></li>\n"}
+    # end the bloc
+  else
+    return halt 500, "no commits.yml file"
+  end
+
   html2Return += "</ul>"
   puts html2Return
+  # if there is a previous html list back it up to htmlArchive
+  if File.exists?('htmlList.html')
+    html2Archive = File.read('htmlList.html')
+    # 'a' is for append
+    archiveFile = File.new('htmlArchive.html', 'a')
+    archiveFile.write("\n" + "<-- " + "Time for html below: " +  Time.now.to_s + + "-->" "\n\n" + html2Archive)
+  else
+    # if not just log the current html2Return
+    File.write('htmlArchive.html', "\n" + "<-- " + "Time for html below: " +  Time.now.to_s + + " -->" "\n\n" + html2Return)
+  end
+
+  File.write('htmlList.html', html2Return)
   $commitInfo.clear
   return halt 200, html2Return
 end
@@ -74,6 +99,7 @@ def getPushInfo(push_hash)
     $commitInfo[push_hash['repository']['name']]['commits'][messageString] = commit['url']
   end
   pp $commitInfo
+  File.write('commits.yml', $commitInfo.to_yaml)
   return halt 200, "got push info"
 end
 
