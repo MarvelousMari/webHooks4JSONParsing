@@ -37,6 +37,7 @@ post '/payload' do
   # convert JSON to Ruby hash
   push = JSON.parse(payload_body)
   getPushInfo(push)
+  return halt 200, "got push info"
 end
 
 get '/commitHTML' do
@@ -44,14 +45,15 @@ get '/commitHTML' do
 end
 
 get '/htmlArchive' do
-  puts File.read('htmlArchive.html')
-  returns halt 200, File.read('htmlArchive.html')
+  htmlArchiveContents = File.read('htmlArchive.html').to_s
+  return halt 200, htmlArchiveContents
 end
 
 def getHTML()
   html2Return = "<ul>\n\t"
-  if File.exists?('commits.yml')
-    commitInfoFromFile = YAML.load_file('commits.yml')
+  if File.exists?('commits.json')
+    commitsjson = File.read('commits.json')
+    commitInfoFromFile = JSON.parse(commitsjson)
     # get the repo name create a link with the message for text and connect it to repository link
     # and set that to the first list line
     commitInfoFromFile.each{|repository, repoVal| html2Return += "<li><a href=\"" + repoVal['repoURL'] + "\">" + repository + "</a><ul>\n"
@@ -62,24 +64,27 @@ def getHTML()
       html2Return += "\t</ul></li>\n"}
     # end the bloc
   else
-    return halt 500, "no commits.yml file"
+    return halt 500, "no commits.json file"
   end
-
   html2Return += "</ul>"
   puts html2Return
+
+  timeLogStart = "\n\n" + "<-- " + "Time for html below: "
+  timeNow = Time.now.to_s
+  timeLogEnd = "-->" + "\n\n"
+  timeLogJoined = timeLogStart + timeNow + timeLogEnd
+  File.write('htmlList.html', html2Return)
+  $commitInfo.clear
+
   # if there is a previous html list back it up to htmlArchive
   if File.exists?('htmlList.html')
     html2Archive = File.read('htmlList.html')
+    stringToLog = timeLogJoined + html2Archive
     # 'a' is for append
-    archiveFile = File.new('htmlArchive.html', 'a')
-    archiveFile.write("\n" + "<-- " + "Time for html below: " +  Time.now.to_s + + "-->" "\n\n" + html2Archive)
-  else
-    # if not just log the current html2Return
-    File.write('htmlArchive.html', "\n" + "<-- " + "Time for html below: " +  Time.now.to_s + + " -->" "\n\n" + html2Return)
+    File.write("htmlArchive.html", stringToLog, mode: 'a')
+    print("\n\n HERE IS WRITE1 \n" + stringToLog + "\n\n")
   end
 
-  File.write('htmlList.html', html2Return)
-  $commitInfo.clear
   return halt 200, html2Return
 end
 
@@ -95,12 +100,11 @@ def getPushInfo(push_hash)
   # get each commit's url and message
   for commit in push_hash['commits'] do
     # get only the first line of the commit message
-    messageString = commit['message'].split("\n")[0]
+    messageString = commit['message'].split("\n")[0].to_s
     $commitInfo[push_hash['repository']['name']]['commits'][messageString] = commit['url']
   end
   pp $commitInfo
-  File.write('commits.yml', $commitInfo.to_yaml)
-  return halt 200, "got push info"
+  File.write('commits.json', $commitInfo.to_json)
 end
 
 # check SECRET_TOKEN Enviorment/server variable
