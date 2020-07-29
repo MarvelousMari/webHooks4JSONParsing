@@ -76,14 +76,10 @@ def getHTML()
   File.write('htmlList.html', html2Return)
   $commitInfo.clear
 
-  # if there is a previous html list back it up to htmlArchive
-  if File.exists?('htmlList.html')
-    html2Archive = File.read('htmlList.html')
-    stringToLog = timeLogJoined + html2Archive
-    # 'a' is for append
-    File.write("htmlArchive.html", stringToLog, mode: 'a')
-    print("\n\n HERE IS WRITE1 \n" + stringToLog + "\n\n")
-  end
+  html2Archive = File.read('htmlList.html')
+  stringToLog = timeLogJoined + html2Archive
+  # 'a' is for append
+  File.write("htmlArchive.html", stringToLog, mode: 'a')
 
   return halt 200, html2Return
 end
