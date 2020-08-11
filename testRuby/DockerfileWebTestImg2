@@ -1,0 +1,10 @@
+FROM webtestsin
+EXPOSE 4567
+#RUN apt install -y thin
+CMD ruby /rubyScript/myWebTest.rb
+#docker build -t webtestimg2 .
+#docker network connect --ip 172.0.0.3 docker-test-network <CONTAINER-ID>
+#docker run -p 127.0.0.2:4567:4567 webtestimg2
+
+
+#docker network create --driver bridge --subnet 172.0.0.3/16 --gateway 172.0.0.2 docker-test-network

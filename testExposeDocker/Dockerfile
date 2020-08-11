@@ -7,7 +7,6 @@ RUN --mount=type=secret,id=expose_token,dst=/run/secrets/expose_token.txt php ex
 # GETS CONTENTS SUCCESSFULLY
 #RUN --mount=type=secret,id=expose_token,dst=/run/secrets/expose_token.txt cat /run/secrets/expose_token.txt
 #RUN cat /run/secrets/expose_token.txt
-
 WORKDIR /src/
 
 

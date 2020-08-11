@@ -1,14 +1,7 @@
 require 'sinatra'
 require 'json'
-require 'yaml'
-# pretty print
 require 'pp'
 
-
-#set :port, 443
-#set :port, 8080
-#default is 4567
-set :bind, 'webHooks4JSONParsing.expose'
 $commitInfo = Hash.new()
 # looks like
 # {"appWindowSetUp"=>

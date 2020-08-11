@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  test_expose_server:
+    build: test_combined_server
+    secrets:
+      - expose_token
+      - github_access_token
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.57.0/24
+
+secrets:
+  expose_token:
+    file: ./expose_token.txt
+  github_access_token:
+    file: ./github_access_token.txt
