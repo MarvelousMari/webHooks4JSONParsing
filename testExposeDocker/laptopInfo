@@ -1,0 +1,150 @@
+Client:
+ Debug Mode: false
+
+Server:
+ Containers: 186
+  Running: 0
+  Paused: 0
+  Stopped: 186
+ Images: 161
+ Server Version: 19.03.12
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 7ad184331fa3e55e52b890ea95e65ba581ae3429
+ runc version: dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ init version: fec3683
+ Security Options:
+  apparmor
+  seccomp
+   Profile: default
+ Kernel Version: 5.7.9-050709-generic
+ Operating System: Pop!_OS 20.04 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 15.09GiB
+ Name: Mtop
+ ID: PS5B:IUIR:JU5L:U5LY:LUYW:HPSK:QLL7:I7E4:DBZX:DJ44:4QBY:NDCV
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: API is accessible on http://127.0.0.1:2375 without encryption.
+         Access to the remote API is equivalent to root access on the host. Refer
+         to the 'Docker daemon attack surface' section in the documentation for
+         more information: https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+WARNING: No swap limit support
+
+
+Client: Docker Engine - Community
+ Version:           19.03.12
+ API version:       1.40
+ Go version:        go1.13.10
+ Git commit:        48a66213fe
+ Built:             Mon Jun 22 15:45:44 2020
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.12
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.13.10
+  Git commit:       48a66213fe
+  Built:            Mon Jun 22 15:44:15 2020
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.2.13
+  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429
+ runc:
+  Version:          1.0.0-rc10
+  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+
+
+  SHELL=/bin/bash
+  SESSION_MANAGER=local/Mtop:@/tmp/.ICE-unix/2735,unix/Mtop:/tmp/.ICE-unix/2735
+  QT_ACCESSIBILITY=1
+  COLORTERM=truecolor
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-pop:/etc/xdg
+  XDG_MENU_PREFIX=gnome-
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  GTK_IM_MODULE=ibus
+  LANGUAGE=en_US:en
+  QT4_IM_MODULE=ibus
+  MANDATORY_PATH=/usr/share/gconf/pop.mandatory.path
+  LC_ADDRESS=en_US.UTF-8
+  GNOME_SHELL_SESSION_MODE=pop
+  LC_NAME=en_US.UTF-8
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  XMODIFIERS=@im=ibus
+  DESKTOP_SESSION=pop
+  LC_MONETARY=en_US.UTF-8
+  SSH_AGENT_PID=2559
+  GTK_MODULES=gail:atk-bridge:appmenu-gtk-module
+  PWD=/home/marvelousmari/Documents/webHooks4JSONParsing/testCombined
+  XDG_SESSION_DESKTOP=pop
+  LOGNAME=marvelousmari
+  XDG_SESSION_TYPE=x11
+  GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+  XAUTHORITY=/run/user/1000/gdm/Xauthority
+  GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+  WINDOWPATH=2
+  HOME=/home/marvelousmari
+  USERNAME=marvelousmari
+  IM_CONFIG_PHASE=1
+  LC_PAPER=en_US.UTF-8
+  LANG=en_US.UTF-8
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  XDG_CURRENT_DESKTOP=pop:GNOME
+  VTE_VERSION=6003
+  GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/98939661_6a20_468c_8a16_f61a45e26ce3
+  INVOCATION_ID=de0e96d877f24d4ab14c76f0dc39fe95
+  MANAGERPID=2328
+  CLUTTER_IM_MODULE=ibus
+  GJS_DEBUG_OUTPUT=stderr
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XDG_SESSION_CLASS=user
+  TERM=xterm-256color
+  LC_IDENTIFICATION=en_US.UTF-8
+  DEFAULTS_PATH=/usr/share/gconf/pop.default.path
+  LESSOPEN=| /usr/bin/lesspipe %s
+  LIBVIRT_DEFAULT_URI=qemu:///system
+  USER=marvelousmari
+  GNOME_TERMINAL_SERVICE=:1.139
+  DISPLAY=:1
+  SHLVL=1
+  LC_TELEPHONE=en_US.UTF-8
+  QT_IM_MODULE=ibus
+  LC_MEASUREMENT=en_US.UTF-8
+  PAPERSIZE=letter
+  XDG_RUNTIME_DIR=/run/user/1000
+  LC_TIME=en_US.UTF-8
+  JOURNAL_STREAM=8:49985
+  XDG_DATA_DIRS=/usr/share/pop:/home/marvelousmari/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+  PATH=/home/marvelousmari/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+  GDMSESSION=pop
+  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  LC_NUMERIC=en_US.UTF-8
+  OLDPWD=/home/marvelousmari/Documents/webHooks4JSONParsing
+  _=/usr/bin/printenv
